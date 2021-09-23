@@ -1,4 +1,4 @@
-#!/home/user/gitlab/tickets/venv/bin/python3
+#!/home/user/gitlab/tickets/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

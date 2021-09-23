@@ -11,8 +11,20 @@ class tickets(database.Model):
     title = database.Column(database.Text)
     body = database.Column(database.Text)
     email = database.Column(database.String(50))
-    status = database.Column(database.String(20))
+    status = database.Column(database.String(20), default='opened')
     comments_list = relationship("comments", lazy='select')
+
+    def as_dict(self):
+        return {
+            "ticket_id": self.ticket_id,
+            "create_datetime": self.create_datetime,
+            "change_datetime": self.change_datetime,
+            "title": self.title,
+            "body": self.body,
+            "email": self.email,
+            "status": self.status,
+            "comments": [comment.as_dict() for comment in self.comments_list]
+        }
 
 
 class comments(database.Model):
@@ -21,3 +33,12 @@ class comments(database.Model):
     create_datetime = database.Column(database.DateTime, default=datetime.now())
     email = database.Column(database.String(50))
     comment = database.Column(database.Text)
+
+    def as_dict(self):
+        return {
+            "comment_id": self.comment_id,
+            # "ticket_id": self.ticket_id,
+            "create_datetime": self.create_datetime,
+            "email": self.email,
+            "comment": self.comment
+        }
