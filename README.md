@@ -67,3 +67,11 @@ uwsgi --socket 127.0.0.1:5000 --protocol=http -w wsgi:app
   "ticket_id": 0
 }
 ```
+
+## Technologies
+
+* Flask for API constructor
+* Redis for Cache
+* PostgresSQL for database
+* SQLAlchemy for ORM
+* uWSGI for Web-server (instead of Werkzeug)
