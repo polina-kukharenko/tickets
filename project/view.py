@@ -1,4 +1,4 @@
-from app import app
+from app import app, cache
 from functions import create_ticket, change_status, show_ticket, add_comment
 from flask import jsonify, request
 
@@ -18,6 +18,7 @@ def r_create_ticket():
 
 
 @app.route(f'{url}/ticket/<int:ticket_id>', methods=['GET'])
+@cache.cached(timeout=60)
 def r_get_ticket(ticket_id):
     ticket = show_ticket(ticket_id=ticket_id)
     if not ticket:
