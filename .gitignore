@@ -1,2 +1,4 @@
 .flaskenv
 venv
+.idea
+project/__pycache__
