@@ -4,7 +4,7 @@ _ticket-system API **tutorial model**_
 ## Run
 
 ```
-uwsgi --socket 127.0.0.1:5000 --protocol=http -w wsgi:app
+python3 main.py
 ```
 
 ## API Docs
