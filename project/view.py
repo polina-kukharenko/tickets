@@ -2,7 +2,7 @@ from app import app, cache
 from functions import create_ticket, change_status, show_ticket, add_comment
 from flask import jsonify, request, make_response
 
-url = '/tickets/'
+url = '/tickets'
 
 
 @app.route(f'{url}/create', methods=['POST'])
