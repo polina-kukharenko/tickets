@@ -11,10 +11,10 @@ uwsgi --socket 127.0.0.1:5000 --protocol=http -w wsgi:app
 
 | Method | Endpoint | Data | For what |
 | --- | --- | --- | --- |
-| GET | /tickets/ticket/{id} | id - ticket_id | Get ticket |
-| POST | /tickets/ticket | title, body, email - required fields | Create ticket |
-| POST | /tickets/comment/{id} | id - ticket_id; comment, email  - required fields | Add comment for ticket |
-| PUT | /tickets/ticket/{id} | id - ticket_id, status - required field | Change ticket status |
+| GET | /tickets/{id} | id - ticket_id | Get ticket |
+| POST | /tickets/create | title, body, email - required fields | Create ticket |
+| POST | /tickets/{id}/comment | id - ticket_id; comment, email  - required fields | Add comment for ticket |
+| PUT | /tickets/{id} | id - ticket_id, status - required field | Change ticket status |
 
 ## Responses
 
@@ -74,4 +74,3 @@ uwsgi --socket 127.0.0.1:5000 --protocol=http -w wsgi:app
 * Redis for Cache
 * PostgresSQL for database
 * SQLAlchemy for ORM
-* uWSGI for Web-server (instead of Werkzeug)
